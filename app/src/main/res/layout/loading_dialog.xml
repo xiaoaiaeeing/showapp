@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:custom="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/bg_trans_shape"
+        android:orientation="vertical">
+
+        <com.ident.validator.common.views.GifMovieView
+            android:id="@+id/iv_loading"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_horizontal"
+            android:onClick="onGifClick"
+            custom:gif="@drawable/loading_large"/>
+    </RelativeLayout>
+</LinearLayout>

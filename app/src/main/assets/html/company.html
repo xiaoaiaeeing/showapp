@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>Title</title>
+    <script type="javascript">
+        window.onload = function () {
+            scaleFunction(750)
+        }
+        function scaleFunction(designSize) { //designSize为设计稿的尺寸(宽)
+            var doc = document,
+                docEl = doc.documentElement,
+                devWidth = docEl.clientWidth > 1080 ? 1080 : docEl.clientWidth,
+                dpr = devicePixelRatio || 1,  //如果不支持devicePixelRatio则默认为1
+                scale = 1 / dpr,
+                width = dpr * devWidth;
+            document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=' + width +
+                ', initial-scale=' + scale +
+                ', maximum-scale=' + scale +
+                ', minimum-scale=' + scale +
+                ', user-scalable=no');
+            docEl.style.fontSize = devWidth / (designSize / 100) * dpr + 'px';
+        }
+    </script>
+    <style>
+        * {
+            margin: 0 auto;
+            padding: 0;
+            color: #505050;
+            font-family: "宋体", serif;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .content {
+            color: #505050;
+            padding: 20px;
+            margin: 0 auto;
+            font-family: "微软雅黑";
+        }
+
+        html {
+            font-size: 14px;
+        }
+
+        p {
+            padding: 5px 0px 5px 0px;
+            text-indent: 2em;
+        }
+
+    </style>
+</head>
+<body>
+<div class="content">
+    <h4>公司概况：</h4>
+    <p>四川爱扽实业有限公司，成立于2015年2月，秉持“科技创新防伪溯源，还商品市场碧水蓝天”的信念，致力于构建为中高端（酒类）商品生产商和广大消费者服务的（酒类）商品公共防伪认证平台，立志成为商品防伪溯源行业的中流砥柱。</p>
+    <p>公司核心团队由一批团结奋进，教育背景好，专业能力强、工作经验丰富的人员组成：江苏团队有近20名专业系统研发工程师，成都研发基地由十余名软硬件专家组成，职责架构合理，分工明确；同时有电子科技大学的多名教授带领数十名博士、硕士研究生参与研发工作。公司申报并部分获批了40余项专利技术，突破性地用闭环控制系统理论搭建防伪认证系统，有效解决了RFID防伪中批量造假的顽疾；同时，原创性地发明了带状态位的RFID标签芯片及相应的系统性应用解决方案，为可靠解决RFID防伪中的另一个世界性难题──标签的非法重复使用，提供了切实可行的解决办法。</p>
+    <p>公司的研发团队及创新技术一直都得到四川省经信委、科技厅等政府相关部门的高度认可和支持，并与四川、江苏、贵州、安徽等多个知名厂商就本系统的技术及运营模式进行了探讨，获得了业界的普遍认可和好评。</p>
+</div>
+</body>
+</html>

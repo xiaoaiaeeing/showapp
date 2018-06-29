@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.ident.validator.common.views.CustomToolbar style="@style/custom_toolbar_style" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#25c8b7"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <com.ident.validator.common.views.GifMovieView
+            xmlns:custom="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/mGifView"
+            android:layout_width="400dp"
+            android:layout_height="400dp"
+            android:layout_marginBottom="70dp"
+            android:onClick="onGifClick" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:id="@+id/verify_first_ly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="visible" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/verify_tip"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/verify_use_tip"
+                    android:textColor="#1a3532"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/verify_second_ly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone" >
+
+                <TextView
+                    android:id="@+id/verify_second_msg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="将手机置于商品标签上"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <TextView
+                      android:id="@+id/verify_second_"
+                    android:layout_width="120dp"
+                    android:visibility="gone"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/white_border_shape"
+                    android:gravity="center"
+                    android:text="查看证书"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+
+</LinearLayout>

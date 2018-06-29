@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@mipmap/img_header_title" />
+
+    <TextView
+        android:id="@+id/left_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:drawableLeft="@mipmap/ic_back"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="返回"
+        android:visibility="visible"
+        android:textColor="#363636"
+        android:textSize="14sp" />
+
+    <ImageView
+        android:id="@+id/right_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:visibility="gone"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dp"
+        android:src="@mipmap/ic_small_scan" />
+
+    <ImageView
+        style="@style/divider_style"
+        android:layout_alignParentBottom="true" />
+
+</merge>

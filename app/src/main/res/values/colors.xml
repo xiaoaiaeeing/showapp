@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimaryDark">@color/white</color>
+    <color name="colorAccent">@color/white</color>
+    <color name="color_action_bar">#0b0b0b</color>
+    <color name="color_blue">#1d8ded</color>
+    <color name="color_bg">#f2f2f2</color>
+    <color name="color_gray">#a3a3a3</color>
+    <color name="gray">#e0e0e0</color>
+    <color name="white">#FFFFFF</color>
+    <color name="dark_gray">#a1a4a4</color>
+    <color name="color_black_8f8e94">#8f8e94</color>
+    <color name="color_gray_d8d8d8">#d8d8d8</color>
+    <color name="home_wly_black">#ff262d41</color>
+    <color name="home_wly_gray_black">#ff8e929a</color>
+    <color name="normal_black">#ff29303f</color>
+    <color name="normal_white">#ffffffff</color>
+    <color name="ewm_result_tips_gray">#ff565b64</color>
+    <color name="ewm_result_title">#ff8e929a</color>
+    <color name="ewm_tips_white">#fff9f9fa</color>
+    <color name="result_divider">#ffdcdfe4</color>
+    <color name="result_failed_content">#ff333333</color>
+    <color name="result_failed_info_bg">#fff9fafc</color>
+    <color name="result_failed_title">#ff999999</color>
+    <color name="result_gray">#ff8e929a</color>
+    <color name="result_gray_bg">#ff939ba8</color>
+    <color name="result_tips_black">#ff333333</color>
+    <color name="result_tips_gray">#ff666666</color>
+    <color name="wave_color">#ffbcbfc9</color>
+    <color name="wave_color1">#f1e5d9</color>
+    <color name="wave_color_bg">#c2c6d1</color>
+
+    <color name="yh_wave_color">#a5cde6</color>
+    <color name="lzlj_wave_color">#d1d3dc</color>
+    <color name="lj_wave_color">#ecdedf</color>
+    <color name="jnc_wave_color">#F5DEB3</color>
+    <color name="gj_wave_color">#f1e5d9</color>
+    <color name="dk_wave_color">#FFD700</color>
+    <color name="wlc_wave_color">#EEE685</color>
+</resources>

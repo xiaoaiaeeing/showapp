@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginLeft="50dp"
+    android:layout_marginRight="50dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1.0"
+        android:background="@drawable/home_result_white_bg"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/content"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15.0dp">
+
+                <ImageView
+                    android:id="@+id/success_product_iv"
+                    android:layout_width="80dp"
+                    android:layout_height="120dp"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/p_010001000100000002_img" />
+
+                <ImageView
+                    android:id="@+id/yz"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_centerInParent="true"
+                    android:alpha="0.0"
+                    android:src="@mipmap/p_010001000100000002_success" />
+
+                <ImageView
+                    android:id="@+id/success_img"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/p_010001000100000002_success" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/test_seal"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:src="@mipmap/img_test"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:text="请仔细核对瓶身商品信息"
+            android:textColor="@color/ewm_result_tips_gray"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="17dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/result_divider" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="生产批号："
+                    android:textColor="@color/result_gray"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/batch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="33441234551"
+                    android:textColor="@color/normal_black"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="生产日期："
+                    android:textColor="@color/result_gray"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/production_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2010.09.10"
+                    android:textColor="@color/normal_black"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="物  流  码："
+                    android:textColor="@color/result_gray"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/wlm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="11718233912112"
+                    android:textColor="@color/normal_black"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/success_close"
+        android:layout_width="30dp"
+        android:layout_height="46dp"
+        android:layout_gravity="right"
+        android:layout_marginRight="38dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:src="@mipmap/close_btn_home" />
+
+</LinearLayout>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.ident.validator.core.ui.ValidatorActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/toolbar_bg">
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:src="@mipmap/ic_back" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/img_header_title" />
+
+        <ImageView
+            android:id="@+id/btn_right"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingRight="10dp"
+            android:src="@mipmap/ic_jump"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/root_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/p_010001000100000002_bg" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:id="@+id/top_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:layout_alignParentTop="true"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="10dp">
+
+                    <ImageView
+                        android:id="@+id/logo_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:layout_alignParentLeft="true"
+                        android:src="@mipmap/p_010001000100000002_logo" />
+
+                    <TextView
+                        android:id="@+id/title_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/logo_iv"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="15dp"
+                        android:gravity="center"
+                        android:text="全新一代"
+                        android:textColor="@color/home_wly_black"
+                        android:textSize="28sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/sub_title_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/title_txt"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:text="NFC防伪查询"
+                        android:textColor="@color/home_wly_black"
+                        android:textSize="28sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/seal_iv"
+                        android:layout_width="25dp"
+                        android:layout_height="50.0dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_gravity="bottom"
+                        android:layout_marginLeft="10.0dp"
+                        android:layout_toRightOf="@id/sub_title_txt"
+                        android:scaleType="fitCenter"
+                        android:src="@mipmap/p_010001000100000002_seal" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/center_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.ident.validator.core.views.MyWaveView
+                        android:id="@+id/wave_view"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp" />
+
+                    <TextView
+                        android:id="@+id/tip_one"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="15dp"
+                        android:gravity="center"
+                        android:text="正在验证中"
+                        android:textColor="@color/home_wly_black"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:id="@+id/tip_two"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5.0dp"
+                        android:text="靠近标签开始验证"
+                        android:textColor="@color/home_wly_black"
+                        android:textSize="18sp"
+                        android:visibility="visible" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/bottom_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/center_content">
+
+                    <com.ident.validator.core.views.WaveLoadingView
+                        android:id="@+id/waveLoadingView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:wlv_progressValue="50"
+                        app:wlv_shapeType="rectangle"
+                        app:wlv_waveAmplitude="50.0"
+                        app:wlv_waveColor="@color/wave_color" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="150dp"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/success_layout"
+                layout="@layout/dialog_success"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <include
+                android:id="@+id/failure_layout"
+                layout="@layout/dialog_failure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

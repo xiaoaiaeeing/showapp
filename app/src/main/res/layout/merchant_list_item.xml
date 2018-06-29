@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/gray_5r_shape"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/merchant_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:contentDescription="im"
+            android:src="@mipmap/img_wuliangye" />
+
+        <TextView
+            android:id="@+id/merchant_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="五粮液"
+            android:textColor="#1e1e1e"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/merchant_summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="14dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="五粮液为大曲浓香型白酒，产于四川宜宾市，用小麦、大米、玉米、高粱、糯米5种粮食发酵酿制而成，在中国浓香型酒中独树一帜"
+            android:textColor="#646464"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,52 @@
+[
+  {
+    "url": "http://wlc.net.cn/e/action/ListInfo/?classid=60",
+    "name": "五粮春",
+    "pid": "010001000100000002"
+  },
+  {
+    "url": "http://www.dukang.com/Brand/Series",
+    "name": "杜康",
+    "pid": "010001000100000061"
+  },
+  {
+    "url": "http://www.jnc.com.cn",
+    "name": "剑南春",
+    "pid": "010001000100000041"
+  },
+  {
+    "url": "http://www.lzlj.com",
+    "name": "泸州老窖",
+    "pid": "010001000100000021"
+  },
+  {
+    "url": "http://www.gujing.com",
+    "name": "古井贡酒",
+    "pid": "010001000100000051"
+  },
+  {
+    "url": "http://www.chinayanghe.com",
+    "name": "洋河",
+    "pid": "010001000100000011"
+  },
+  {
+    "url": "http://www.langjiu.cn",
+    "name": "郎酒",
+    "pid": "010001000100000071"
+  },
+  {
+    "url": "http://www.armani.cn/cn",
+    "name": "阿玛尼",
+    "pid": "060001000100000081"
+  },
+  {
+    "url": "http://www.zzpzh.com/",
+    "name": "片仔癀",
+    "pid": "0300020000000000a1"
+  },
+  {
+    "url": "http://www.tobacco.gov.cn/html",
+    "name": "九寨沟",
+    "pid": "020001000100000094"
+  }
+]

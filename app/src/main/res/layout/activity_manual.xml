@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.ident.validator.common.views.CustomToolbar
+        android:id="@id/actionBar"
+        style="@style/custom_toolbar_style" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/mPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/actionBar"
+        android:background="@color/white" >
+    </android.support.v4.view.ViewPager>
+
+    <ImageView
+        android:id="@+id/mArrow_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/mPager"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentRight="true"
+        android:src="@mipmap/img_verify_arrow" />
+
+</RelativeLayout>

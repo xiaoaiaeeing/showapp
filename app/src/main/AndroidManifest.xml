@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ident.validator">
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/new_logo_1"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/test_logo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".ui.launcher.LauncherActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Splash_Activity_Theme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.home.HomeActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.company.CompanyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.company.ShareIdentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.company.CompanyCommonActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.goods.GoodsDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.goods.GoodsMoreInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.manual.UseManualActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.merchant.MerchantActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.news.NewsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.news.NewsDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.report.ReportActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".common.updater.DownloadActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Dialog"></activity>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.ident.validator.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <receiver
+            android:name=".common.updater.DownloadReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="back_class" android:value="com.ident.validator.ui.home.HomeActivity"/>
+    </application>
+
+</manifest>

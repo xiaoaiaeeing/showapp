@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.ident.validator.core.ui.ValidatorActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/root_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/img_ident_bg" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:id="@+id/top_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:layout_alignParentTop="true"
+                    android:paddingLeft="15dp">
+
+                    <ImageView
+                        android:id="@+id/logo_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginTop="10dp"
+                        android:src="@mipmap/img_ident_logo" />
+
+                    <ImageView
+                        android:id="@+id/ident_tip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@mipmap/img_ident_tip" />
+
+                    <ImageView
+                        android:id="@+id/seal_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/ident_tip"
+                        android:layout_marginBottom="-10dp"
+                        android:layout_marginLeft="10.0dp"
+                        android:layout_toRightOf="@id/ident_tip"
+                        android:scaleType="fitCenter"
+                        android:src="@mipmap/img_ident_seal" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/center_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_below="@id/top_content"
+                    android:orientation="vertical">
+
+                    <com.ident.validator.core.views.GifMovieView
+                        android:id="@+id/gifview"
+                        android:layout_width="150dp"
+                        android:layout_centerInParent="true"
+                        android:layout_height="150dp"
+                        app:gif="@raw/ident_gif" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/bottom_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/center_content">
+
+                    <com.ident.validator.core.views.WaveLoadingView
+                        android:id="@+id/waveLoadingView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:wlv_progressValue="50"
+                        app:wlv_shapeType="rectangle"
+                        app:wlv_waveAmplitude="50.0"
+                        app:wlv_waveColor="@color/wave_color" />
+                    <TextView
+                        android:id="@+id/tip_two"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_alignParentTop="true"
+                        android:text="请讲NFC天线靠近商品标签，等待验证"
+                        android:textColor="@color/home_wly_black"
+                        android:layout_marginTop="30dp"
+                        android:textSize="16sp"
+                        android:visibility="visible" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

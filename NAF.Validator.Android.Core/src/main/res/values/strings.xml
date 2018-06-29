@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">NAF.Validator.Core</string>
+    <string name="product_bg">p_%1$s_bg</string>
+    <string name="product_img">p_%1$s_img</string>
+    <string name="product_seal">p_%1$s_seal</string>
+    <string name="product_logo">p_%1$s_logo</string>
+    <string name="product_success">p_%1$s_success</string>
+    <string name="product_failure">p_%1$s_failure</string>
+
+    <string name="disk_product_bg">%1$s/p_%2$s_bg.png</string>
+    <string name="disk_product_img">%1$s/p_%2$s_img.png</string>
+    <string name="disk_product_seal">%1$s/p_%2$s_seal.png</string>
+    <string name="disk_product_logo">%1$s/p_%2$s_logo.png</string>
+    <string name="disk_product_success">%1$s/p_%2$s_success.png</string>
+    <string name="disk_product_failure">%1$s/p_%2$s_failure.png</string>
+    <string name="message_get_permissions_success">获取用户授权成功</string>
+    <string name="message_get_permissions_failure">获取用户授权失败</string>
+    <string name="title_dialog">友情提示</string>
+    <string name="message_permission_failed">我们需要的一些权限被您拒绝或者系统发生错误申请失败，请您到设置页面手动授权，否则功能无法正常使用！</string>
+    <!--<string name="message_permission_rationale">我们需要的一些权限被您拒绝或者系统发生错误申请失败，请您到设置页面手动授权，否则功能无法正常使用！</string>-->
+    <string name="btn_dialog_yes_permission">好，去设置</string>
+    <string name="btn_dialog_no_permission">我拒绝</string>
+
+    <string name="permission_cancel">取消</string>
+    <string name="permission_setting">去设置</string>
+    <string name="permission_title_permission_failed">权限申请失败</string>
+    <string name="permission_message_permission_failed">我们需要的一些权限被您拒绝或者系统发生错误申请失败，请您到设置页面手动授权，否则功能无法正常使用！</string>
+
+    <string name="permission_resume">继续</string>
+    <string name="permission_title_permission_rationale">权限已被拒绝</string>
+    <string name="permission_message_permission_rationale">您已经拒绝过我们申请授权，请您同意授权，否则功能无法正常使用！</string>
+    <string name="message_start_verify">靠近标签开始验证</string>
+    <string name="message_dont_move">请勿移动手机</string>
+</resources>

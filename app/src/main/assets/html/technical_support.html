@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>Title</title>
+    <script type="javascript">
+         window.onload = function () {
+            scaleFunction(750)
+        }
+        function scaleFunction(designSize) { //designSize为设计稿的尺寸(宽)
+            var doc = document,
+                docEl = doc.documentElement,
+                devWidth = docEl.clientWidth > 1080 ? 1080 : docEl.clientWidth,
+                dpr = devicePixelRatio || 1,  //如果不支持devicePixelRatio则默认为1
+                scale = 1 / dpr,
+                width = dpr * devWidth;
+            document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=' + width +
+                ', initial-scale=' + scale +
+                ', maximum-scale=' + scale +
+                ', minimum-scale=' + scale +
+                ', user-scalable=no');
+            docEl.style.fontSize = devWidth / (designSize / 100) * dpr + 'px';
+        }
+    </script>
+    <style>
+        * {
+            margin: 0 auto;
+            padding: 0;
+            color: #505050;
+            font-family: "宋体", serif;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .content {
+            color: #505050;
+            padding: 20px;
+            margin: 0 auto;
+            font-family: "微软雅黑";
+        }
+
+        html {
+            font-size: 14px;
+        }
+
+        h4 {
+            padding: 10px 0px 10px 0px;
+        }
+        
+         p {
+            text-indent: 2em;
+        }
+
+    </style>
+</head>
+<body>
+<div class="content">
+    <h4>独立创新——全球领先</h4>
+    <p>
+        随着技术的发展，新的防伪技术和手机技术不断推陈出新，而智能手机的进步和大规模推广应用则为防伪系统带来新的技术手段。我公司自主创新、独立研发的基于移动互联网及RFID电子标签的防伪溯源系统，本着“任何参与人员和系统的任何软硬件提供（开发）商均为不可靠因素”原则，搭建了“黑匣子加隔离舱”的系统架构，采用已获得自主知识产权的全球首创“一次一证，闭环认证”认证方式，消费者只需将手机靠近商品上的电子标签，轻松“扽一下”，便能识别该商品真伪。</p>
+    <h4>突破常规——攻克痼疾</h4>
+    <p>
+        常规防伪手段中，二维码、条形码（电码）和普通RFID电子标签，都是商品信息、防伪信息的载体，只需破解一个真品，便能复制千万份同样的产品，难以真正实现防伪。而爱扽公司所研发的防伪溯源系统，每一次认证的同时将会更新载体（电子标签）和后端服务器中的防伪信息，使得每次认证的数据、信息都形成独立的“闭环”，造假者批量复制的所有标签将无功而返；同时，后端服务器的架构和所有流转于网络的认证数据均通过时间和空间上的系统隔离，保证了即使数据被截获、服务器被攻破造假者也无法获取完整认证信息进行批量造假。更进一步，原创设计的全新带互动开关输入端口的RFID芯片已进入调试阶段，通过芯片级的硬件手段，全球首次实现商品存续状态（商品是否曾经被开启过）的自动判别，彻底杜绝了造假者通过回收商品包装、电子标签进行造假的可能性。</p>
+    <h4>打击假货——还商品市场一片碧水蓝天</h4>
+    <p> 当商品认证成功时，厂商能及时获知认证发生区域，配合经销信息即可有效进行串货管控；</p>
+    <p> 当商品认证失败发现假货时，消费者能即时投诉、定位，有关部门及厂商便可准确获知假货倾销区域从而定点打击。</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@android:id/background">//定义的是背景色
+        <shape>
+            <gradient
+                android:angle="270"
+                android:centerColor="@color/color_bg"
+                android:centerY="0.75"
+                android:endColor="@color/color_bg"
+                android:startColor="@color/color_bg" />
+        </shape>
+    </item>
+
+    <item android:id="@android:id/secondaryProgress">
+        <clip>
+            <shape>
+                <gradient
+                    android:angle="270"
+                    android:centerColor="#99CC99"
+                    android:centerY="0.75"
+                    android:endColor="#99CC99"
+                    android:startColor="#99CC99" />
+            </shape>
+        </clip>
+    </item>
+
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <gradient
+                    android:angle="270"
+                    android:centerColor="@color/color_blue"
+                    android:centerY="0.75"
+                    android:endColor="@color/color_blue"
+                    android:startColor="@color/color_blue" />
+            </shape>
+        </clip>
+    </item>
+
+</layer-list>
