@@ -19,6 +19,8 @@ import com.ident.validator.core.model.TagInfo;
 import com.ident.validator.core.utils.NAFVerifyHelper;
 import com.ident.validator.core.views.ProgressDialog;
 
+import static android.content.ContentValues.TAG;
+
 /**
  * @author cheny
  * @version 1.0
@@ -89,7 +91,8 @@ public class ValidatorPresenter implements ValidatorContract.Presenter, Validate
         if (tag != null) {
             mView.restUI();
             tagInfo = parseProductTag(intent);
-            if (!TextUtils.isEmpty(tagInfo.pid)) {
+            if (tagInfo!=null && !TextUtils.isEmpty(tagInfo.pid)) {
+                //显示真假结果，加载图片
                 boolean result = showProduct(tagInfo.pid);
                 if (result) {
                     startVerify(intent);
@@ -170,14 +173,14 @@ public class ValidatorPresenter implements ValidatorContract.Presenter, Validate
             if (parcelables != null) {
                 String[] schemes = new String[]{"d156000139", "d156000189"};
                 for (String scheme : schemes) {
-                    tagInfo = parseTaInfo(parcelables, scheme.getBytes());
+                    tagInfo = parseTaInfo(parcelables, scheme.getBytes());//tagInfo可以为null
                     if (tagInfo != null)
                         break;
                 }
             }
-            tagInfo.tid = NAFVerifyHelper.getTagTid(NAFVerifyHelper.getNfcData(intent));
+            //tagInfo.tid = NAFVerifyHelper.getTagTid(NAFVerifyHelper.getNfcData(intent));
         }
-        Log.e("ident", "tagInfo:" + tagInfo.toString());
+        //Log.e("ident", "tagInfo:" + tagInfo.toString());
         return tagInfo;
     }
 
@@ -189,6 +192,8 @@ public class ValidatorPresenter implements ValidatorContract.Presenter, Validate
             NdefRecord[] records = msg.getRecords();
             for (int j = 0; j < records.length; j++) {
                 byte[] payload = records[j].getPayload();
+                Log.d(TAG, "parseTaInfo: "+bytesToHexString(scheme));
+                Log.d(TAG, "parseTaInfo: "+bytesToHexString(payload));
                 if (payload != null && payload.length > scheme.length) {
                     boolean found = true;
                     for (int k = 0; k < scheme.length; ++k) {
@@ -278,5 +283,24 @@ public class ValidatorPresenter implements ValidatorContract.Presenter, Validate
             return "http://pdp.ident.cn/ProductPortal/Product/WebSite?aid=" + tagInfo.aid.toUpperCase() + "?tid=" + tagInfo.tid.toUpperCase();
         }
         return null;
+    }
+
+    public String bytesToHexString(byte[] src) {
+        StringBuilder builder = new StringBuilder();
+        if(src != null && src.length > 0) {
+            for(int i = 0; i < src.length; ++i) {
+                int v = src[i] & 255;
+                String hv = Integer.toHexString(v);
+                if(hv.length() < 2) {
+                    builder.append(0);
+                }
+
+                builder.append(hv);
+            }
+
+            return builder.toString();
+        } else {
+            return null;
+        }
     }
 }
