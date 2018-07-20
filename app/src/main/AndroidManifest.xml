@@ -57,7 +57,7 @@
         <activity
             android:name=".common.updater.DownloadActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Dialog"></activity>
+            android:theme="@style/Theme.Dialog" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -77,7 +77,16 @@
                 <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
             </intent-filter>
         </receiver>
-        <meta-data android:name="back_class" android:value="com.ident.validator.ui.home.HomeActivity"/>
+
+        <meta-data
+            android:name="back_class"
+            android:value="com.ident.validator.ui.home.HomeActivity" />
+
+        <activity
+            android:name=".activity.ReadTagActivity"
+            android:launchMode="singleTop" />
+        <activity android:name=".activity.WriteTagActivity"
+            android:launchMode="singleTop"/>
     </application>
 
 </manifest>

@@ -1,12 +1,12 @@
 package com.ident.validator.ui.company;
 
+import android.os.Bundle;
+import android.view.View;
+
 import com.ident.validator.R;
 import com.ident.validator.common.base.BaseActivity;
 import com.ident.validator.common.base.mvp.BasePresenter;
 import com.ident.validator.common.utils.ShareUtils;
-
-import android.os.Bundle;
-import android.view.View;
 
 public class ShareIdentActivity extends BaseActivity {
 
@@ -27,7 +27,7 @@ public class ShareIdentActivity extends BaseActivity {
 
 	@Override
 	protected void initializeData() {
-		// TODO Auto-generated method stub
+
 
 	}
 
@@ -35,7 +35,8 @@ public class ShareIdentActivity extends BaseActivity {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.share_btn:
-			ShareUtils.shareText(this, getString(R.string.str_share_text));
+			//ShareUtils.shareText(this, getString(R.string.str_share_text));
+			ShareUtils.shareImage(null,this);
 //			String temp = "drawable://" + R.drawable.erweim;
 //			intent.putExtra(Intent.EXTRA_STREAM, Uri.parse(temp));
 			break;

@@ -1,15 +1,15 @@
 package com.ident.validator.common.utils;
 
-import java.io.File;
-import java.util.ArrayList;
-
-import com.ident.validator.R;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
 import android.view.View;
+
+import com.ident.validator.R;
+
+import java.io.File;
+import java.util.ArrayList;
 
 public class ShareUtils {
 	public static void shareText(Activity act, String content) {
@@ -22,7 +22,8 @@ public class ShareUtils {
 
 	public static void shareImage(View view, Activity act) {
 		String imagePath = Environment.getExternalStorageDirectory() + File.separator + "validator.jpg";
-		Uri imageUri = Uri.fromFile(new File(imagePath));
+		Uri imageUri = Uri.parse("android.resource://" + act.getPackageName() + "/" +R.mipmap.img_ident);
+		//Uri imageUri = Uri.fromFile(new File(imagePath));
 
 		Intent shareIntent = new Intent();
 		shareIntent.setAction(Intent.ACTION_SEND);

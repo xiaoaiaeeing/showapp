@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import com.ident.NAFNfc;
 import com.ident.validator.R;
+import com.ident.validator.activity.ReadTagActivity;
+import com.ident.validator.activity.WriteTagActivity;
 import com.ident.validator.common.base.BaseActivity;
 import com.ident.validator.common.base.mvp.BasePresenter;
 import com.ident.validator.common.imageloader.ZImageLoader;
@@ -19,7 +21,6 @@ import com.ident.validator.common.widgets.rollviewpager.RollPagerView;
 import com.ident.validator.common.widgets.rollviewpager.hintview.IconHintView;
 import com.ident.validator.core.ui.ValidatorActivity;
 import com.ident.validator.core.utils.NAFVerifyHelper;
-import com.ident.validator.ui.company.CompanyActivity;
 import com.ident.validator.ui.company.ShareIdentActivity;
 import com.ident.validator.ui.manual.UseManualActivity;
 import com.ident.validator.ui.merchant.MerchantActivity;
@@ -136,9 +137,12 @@ public class HomeActivity extends BaseActivity {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.ident_about_btn:
-                startActivity(CompanyActivity.class);
+                //startActivity(CompanyActivity.class);
+                startActivity(ReadTagActivity.class);
                 break;
             case R.id.ident_partner_btn:
+                startActivity(WriteTagActivity.class);
+                break;
             case R.id.more_merchant_btn:
                 startActivity(MerchantActivity.class);
                 break;

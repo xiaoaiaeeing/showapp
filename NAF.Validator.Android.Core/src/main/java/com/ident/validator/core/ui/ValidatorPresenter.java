@@ -100,7 +100,7 @@ public class ValidatorPresenter implements ValidatorContract.Presenter, Validate
                     mView.showAlert("未找到对应资源,请更新后再使用");
                 }
             } else {
-                mView.showAlert("空白标签啊！");
+                mView.showAlert("空白标签！");
             }
         }
     }
