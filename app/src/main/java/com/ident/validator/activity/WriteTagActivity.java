@@ -57,13 +57,27 @@ public class WriteTagActivity extends BaseNfcActivity {
 //            Log.d(TAG, "writeTag: "+re);
 //            ok = Validator.getInstance().authenticate(new byte[]{-1,-1,-1,-1});
             //写入八个汉字，从第五页开始写，中文需要转换成GB2312格式
+
+            //密码认证
+            byte[] transceive = ultralight.transceive(new byte[]{0x1b, -1, -1, -1, -1});
+            String re="";
+            for(int i=0;i<transceive.length;i++){
+                String temp = Integer.toHexString(transceive[i] & 0xFF);
+                if (temp.length() == 1) {
+                    temp = "0" + temp;
+                }
+                re+=temp;
+            }
+            Log.d(TAG, "writeTag: "+re);
+
             ultralight.writePage(4, "北京".getBytes(Charset.forName("GB2312")));
             Log.d(TAG, "writeTag: 4 success.");
             ultralight.writePage(5, "上海".getBytes(Charset.forName("GB2312")));
             Log.d(TAG, "writeTag: 5 success.");
             ultralight.writePage(6, "广州".getBytes(Charset.forName("GB2312")));
             Log.d(TAG, "writeTag:6 success.");
-            ultralight.writePage(35, "天津".getBytes(Charset.forName("GB2312")));
+            //ultralight.writePage(35, "天津".getBytes(Charset.forName("GB2312")));
+            ultralight.writePage(33,new byte[]{4,0,0,32});
             Log.d(TAG, "writeTag: 35 success.");
             Toast.makeText(this, "写入成功", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
