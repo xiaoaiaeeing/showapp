@@ -12,6 +12,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ident.validator.core.R;
@@ -262,4 +263,5 @@ public class ValidatorActivity extends BaseActivity implements ValidatorContract
         mPresenter.onDestroy();
         super.onDestroy();
     }
+
 }

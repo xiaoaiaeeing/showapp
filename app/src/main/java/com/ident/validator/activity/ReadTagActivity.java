@@ -16,12 +16,15 @@ import java.nio.charset.Charset;
 
 public class ReadTagActivity extends BaseNfcActivity {
     private TextView textView;
+    private TextView textView2;
+    String TAG = "WriteTag";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read_tag);
         textView = (TextView) findViewById(R.id.textView);
+        textView2 = (TextView) findViewById(R.id.textView2);
     }
     @Override
     public void onNewIntent(Intent intent) {
@@ -42,6 +45,7 @@ public class ReadTagActivity extends BaseNfcActivity {
         if (data != null)
             Toast.makeText(this, "读取成功", Toast.LENGTH_SHORT).show();
         textView.setText(data);
+
     }
     public String readTag(Tag tag) {
         MifareUltralight ultralight = MifareUltralight.get(tag);
@@ -119,6 +123,16 @@ public class ReadTagActivity extends BaseNfcActivity {
                     temp="";
                 }
             }
+            byte[] transceive = mifare.transceive(new byte[]{0x30, -128});
+            String re="";
+                String temp2 = Integer.toHexString(transceive[0] & 0xFF);
+                if (temp2.length() == 1) {
+                    temp2 = "0" + temp2;
+                }
+                re+=temp2;
+            
+            textView2.setText("80H地址:"+re);
+            Log.d(TAG, "writeTag: "+re);
             return result;
         } catch (IOException e) {
             Log.e("TAG", "IOException while writing MifareUltralight message...",

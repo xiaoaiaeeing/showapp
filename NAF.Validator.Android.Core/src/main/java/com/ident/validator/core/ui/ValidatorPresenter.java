@@ -7,6 +7,7 @@ import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
+import android.nfc.tech.MifareUltralight;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.Log;
@@ -15,9 +16,17 @@ import com.ident.ValidateListener;
 import com.ident.ValidateResult;
 import com.ident.Validator;
 import com.ident.validator.core.R;
+import com.ident.validator.core.fragment.FailedFragment;
+import com.ident.validator.core.fragment.ResultFragment;
 import com.ident.validator.core.model.TagInfo;
+import com.ident.validator.core.model.TagMessage;
 import com.ident.validator.core.utils.NAFVerifyHelper;
 import com.ident.validator.core.views.ProgressDialog;
+
+import org.litepal.crud.DataSupport;
+
+import java.io.IOException;
+import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
@@ -90,18 +99,71 @@ public class ValidatorPresenter implements ValidatorContract.Presenter, Validate
         Tag tag = NAFVerifyHelper.getNfcData(intent);
         if (tag != null) {
             mView.restUI();
-            tagInfo = parseProductTag(intent);
-            if (tagInfo!=null && !TextUtils.isEmpty(tagInfo.pid)) {
-                //显示真假结果，加载图片
-                boolean result = showProduct(tagInfo.pid);
-                if (result) {
-                    startVerify(intent);
-                } else {
-                    mView.showAlert("未找到对应资源,请更新后再使用");
+//            tagInfo = parseProductTag(intent);
+//            if (tagInfo!=null && !TextUtils.isEmpty(tagInfo.pid)) {
+//                //显示真假结果，加载图片
+//                boolean result = showProduct(tagInfo.pid);
+//                if (result) {
+//                    startVerify(intent);
+//                } else {
+//                    mView.showAlert("未找到对应资源,请更新后再使用");
+//                }
+//            } else {
+//                mView.showAlert("空白标签！");
+//            }
+            MifareUltralight mifare = MifareUltralight.get(tag);
+            String result="";
+            String temp="";
+            try {
+                mifare.connect();
+                byte[] payload = mifare.readPages(0);
+                for(int j =0;j<8;j++) {
+                    temp = Integer.toHexString(payload[j] & 0xFF);
+                    if (temp.length() == 1) {
+                        temp = "0" + temp;
+                    }
+                    result += temp;
                 }
-            } else {
-                mView.showAlert("空白标签！");
+                temp = "";
+                int move = 0x80;
+                byte[] transceive = mifare.transceive(new byte[]{0x30, -128});
+                for(int i=0;i<5;i++){
+                    if((transceive[0] & move) == 0) temp+="0";
+                    else temp+="1";
+                    move = move >> 1;
+                }
+
+                ResultFragment instance = ResultFragment.newInstance();
+                mView.switchFragment(instance);
+                setMove(temp,instance);
+                List<TagMessage> tagMessage = DataSupport.where("uid = ?",result).find(TagMessage.class);
+                if(tagMessage.size()>0){
+                    if(tagMessage.get(0).getStatenum().equals(temp)){
+                        instance.setResultImg(R.mipmap.p_010001000100000002_success);
+                        instance.setResultProduct(true);
+                        instance.setTvInfo("商品已被开启");
+                    }else {
+                        instance.setResultImg(R.mipmap.p_010001000100000002_failure);
+                        instance.setResultProduct(false);
+                        instance.setTvInfo("商品状态位发生变化");
+                    }
+                }else {
+                    TagMessage tagMes = new TagMessage(result,temp);
+                    tagMes.save();
+                    instance.setResultImg(R.mipmap.p_010001000100000002_success);
+                    instance.setResultProduct(true);
+                    instance.setTvInfo("商品验证为真");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
+        }
+    }
+
+    public void setMove(String move,ResultFragment instance){
+        for(int i=0;i<5;i++){
+            Log.d(TAG,move);
+            instance.setImageColor(move.charAt(i),i);
         }
     }
 

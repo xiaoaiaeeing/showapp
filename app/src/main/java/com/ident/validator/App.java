@@ -6,6 +6,8 @@ import android.os.StrictMode;
 
 import com.ident.validator.common.utils.ZLogger;
 
+import org.litepal.LitePalApplication;
+
 /**
  * @author cheny
  * @version 1.0
@@ -13,7 +15,7 @@ import com.ident.validator.common.utils.ZLogger;
  * @date 2017/7/11 11:16
  */
 
-public class App extends Application {
+public class App extends LitePalApplication {
     private static Context sInst;
 
     public static Context getInst() {

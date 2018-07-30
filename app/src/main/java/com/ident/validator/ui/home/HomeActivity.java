@@ -106,6 +106,7 @@ public class HomeActivity extends BaseActivity {
         super.onStart();
     }
 
+    //打开监听,当有tag靠近时，执行onNewIntent
     @Override
     protected void onResume() {
         super.onResume();

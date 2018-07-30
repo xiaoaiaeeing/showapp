@@ -73,7 +73,7 @@ public class WriteTagActivity extends BaseNfcActivity {
             ultralight.writePage(4, "北京".getBytes(Charset.forName("GB2312")));
             Log.d(TAG, "writeTag: 4 success.");
             ultralight.writePage(5, "上海".getBytes(Charset.forName("GB2312")));
-            Log.d(TAG, "writeTag: 5 success.");
+            Log.d(TAG, "writeTag:5 success.");
             ultralight.writePage(6, "广州".getBytes(Charset.forName("GB2312")));
             Log.d(TAG, "writeTag:6 success.");
             //ultralight.writePage(35, "天津".getBytes(Charset.forName("GB2312")));

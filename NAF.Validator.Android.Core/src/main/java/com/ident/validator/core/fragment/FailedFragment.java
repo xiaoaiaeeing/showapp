@@ -1,32 +1,26 @@
-package com.ident.validator.core.ui;
+package com.ident.validator.core.fragment;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.ident.validator.core.R;
 import com.ident.validator.core.base.BaseFragment;
 
 /**
- * @author cheny
- * @version 1.0
- * @descr
- * @date 2017/7/20 9:32
+ * Created by pengllrn on 2018/7/30.
  */
 
-public class DefaultValidatorFragment extends BaseFragment {
-
-    public static DefaultValidatorFragment newInstance() {
-
+public class FailedFragment extends BaseFragment {
+    public static FailedFragment newInstance(){
         Bundle args = new Bundle();
-        
-        DefaultValidatorFragment fragment = new DefaultValidatorFragment();
+        FailedFragment fragment = new FailedFragment();
         fragment.setArguments(args);
         return fragment;
     }
     @Override
     protected int getRootViewLayoutId() {
-        return R.layout.fragment_default_validator;
+        return R.layout.fragment_failure;
     }
 
     @Override
@@ -44,5 +38,8 @@ public class DefaultValidatorFragment extends BaseFragment {
 
     }
 
-
+    public void setUid(String s){
+        TextView tv_uid = (TextView) getHostActivity().findViewById(R.id.batch);
+        tv_uid.setText(s);
+    }
 }
