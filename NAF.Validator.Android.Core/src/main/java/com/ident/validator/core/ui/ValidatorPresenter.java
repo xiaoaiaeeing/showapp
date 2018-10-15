@@ -16,7 +16,6 @@ import com.ident.ValidateListener;
 import com.ident.ValidateResult;
 import com.ident.Validator;
 import com.ident.validator.core.R;
-import com.ident.validator.core.fragment.FailedFragment;
 import com.ident.validator.core.fragment.ResultFragment;
 import com.ident.validator.core.model.TagInfo;
 import com.ident.validator.core.model.TagMessage;
@@ -48,6 +47,8 @@ public class ValidatorPresenter implements ValidatorContract.Presenter, Validate
     private boolean isFirst;
     private ProgressDialog mProgressDialog;
     private TagInfo tagInfo;
+    private String num = " ";
+
 
     public ValidatorPresenter(ValidatorContract.View view) {
         this.mView = view;
@@ -59,10 +60,11 @@ public class ValidatorPresenter implements ValidatorContract.Presenter, Validate
 
     @Override
     public void onStart() {
-        if (isFirst) {
-            analysisTag();
-            isFirst = false;
-        }
+//        if (isFirst){
+//            analysisTag();
+//            isFirst = false;
+//        }
+
     }
 
     @Override
@@ -81,8 +83,16 @@ public class ValidatorPresenter implements ValidatorContract.Presenter, Validate
     }
 
     @Override
-    public void onNewIntent(Intent intent) {
+    public void onNewIntent(Intent intent){
+        //analysisTag();
+    }
+
+
+    @Override
+    public void onNewIntent(Intent intent, String num1) {
+        num = num1;
         analysisTag();
+
     }
 
     @Override
@@ -94,11 +104,19 @@ public class ValidatorPresenter implements ValidatorContract.Presenter, Validate
         }
     }
 
+    @Override
+    public void init() {
+
+    }
+
+
     private void analysisTag() {
         Intent intent = mAct.getIntent();
         Tag tag = NAFVerifyHelper.getNfcData(intent);
         if (tag != null) {
+            //清楚界面
             mView.restUI();
+
 //            tagInfo = parseProductTag(intent);
 //            if (tagInfo!=null && !TextUtils.isEmpty(tagInfo.pid)) {
 //                //显示真假结果，加载图片
@@ -111,6 +129,7 @@ public class ValidatorPresenter implements ValidatorContract.Presenter, Validate
 //            } else {
 //                mView.showAlert("空白标签！");
 //            }
+
             MifareUltralight mifare = MifareUltralight.get(tag);
             String result="";
             String temp="";
@@ -124,36 +143,80 @@ public class ValidatorPresenter implements ValidatorContract.Presenter, Validate
                     }
                     result += temp;
                 }
-                temp = "";
-                int move = 0x80;
-                byte[] transceive = mifare.transceive(new byte[]{0x30, -128});
-                for(int i=0;i<5;i++){
-                    if((transceive[0] & move) == 0) temp+="0";
-                    else temp+="1";
-                    move = move >> 1;
-                }
+               System.out.println(result);
+
+//                temp = "";
+//                int move = 0x80;
+//                byte[] transceive = mifare.transceive(new byte[]{0x30, -128});
+//                for(int i=0;i<5;i++){
+//                    if((transceive[0] & move) == 0) temp+="0";
+//                    else temp+="1";
+//                    move = move >> 1;
+//                }
+//                System.out.println(temp);
+
+
 
                 ResultFragment instance = ResultFragment.newInstance();
                 mView.switchFragment(instance);
-                setMove(temp,instance);
+
+
+                setMove(num,instance);
                 List<TagMessage> tagMessage = DataSupport.where("uid = ?",result).find(TagMessage.class);
-                if(tagMessage.size()>0){
-                    if(tagMessage.get(0).getStatenum().equals(temp)){
-                        instance.setResultImg(R.mipmap.p_010001000100000002_success);
-                        instance.setResultProduct(true);
-                        instance.setTvInfo("商品已被开启");
-                    }else {
+
+                if(num == "aaaaa"){
+                    if(tagMessage.size()>0){
                         instance.setResultImg(R.mipmap.p_010001000100000002_failure);
                         instance.setResultProduct(false);
-                        instance.setTvInfo("商品状态位发生变化");
+                        instance.setTvInfo("商品已开启");
+                        System.out.print(num);
+                    }else{
+                        TagMessage tagMes = new TagMessage(result);
+                        tagMes.save();
+                        instance.setResultImg(R.mipmap.p_010001000100000002_success);
+                        instance.setResultProduct(true);
+                        instance.setTvInfo("商品验证为真");
+                        System.out.print(num);
                     }
                 }else {
-                    TagMessage tagMes = new TagMessage(result,temp);
-                    tagMes.save();
-                    instance.setResultImg(R.mipmap.p_010001000100000002_success);
-                    instance.setResultProduct(true);
-                    instance.setTvInfo("商品验证为真");
+                    if(tagMessage.size()>0){
+                        //
+                        //                                        if(tagMessage.get(0).getStatenum().equals(temp)){
+                        //                                            instance.setResultImg(R.mipmap.p_010001000100000002_success);
+                        //                                            instance.setResultProduct(true);
+                        //                                            instance.setTvInfo("商品已被开启");
+                        //                                        }else {
+                        //                                            instance.setResultImg(R.mipmap.p_010001000100000002_failure);
+                        //                                            instance.setResultProduct(false);
+                        //                                            instance.setTvInfo("商品状态位发生变化");
+                        //                                        }
+                        if(num == "00000"){
+                            instance.setResultImg(R.mipmap.p_010001000100000002_success);
+                            instance.setResultProduct(true);
+                            instance.setTvInfo("商品已被开启");
+                            System.out.print(num);
+                        }else{
+                            instance.setResultImg(R.mipmap.p_010001000100000002_failure);
+                            instance.setResultProduct(false);
+                            instance.setTvInfo("商品状态位发生变化");
+                            System.out.print(num);
+                        }
+                    }else {
+                        //                                        TagMessage tagMes = new TagMessage(result,temp);
+                        //                                        tagMes.save();
+                        //                                        instance.setResultImg(R.mipmap.p_010001000100000002_success);
+                        //                                        instance.setResultProduct(true);
+                        //                                       instance.setTvInfo("商品验证为真");
+                        TagMessage tagMes = new TagMessage(result);
+                        tagMes.save();
+                        instance.setResultImg(R.mipmap.p_010001000100000002_success);
+                        instance.setResultProduct(true);
+                        instance.setTvInfo("商品验证为真");
+                        System.out.print(num);
+
+                    }
                 }
+
             } catch (IOException e) {
                 e.printStackTrace();
             }

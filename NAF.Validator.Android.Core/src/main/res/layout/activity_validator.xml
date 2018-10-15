@@ -17,12 +17,15 @@
             android:id="@+id/btn_back"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_centerVertical="true"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:src="@mipmap/ic_back_white" />
+            android:src="@mipmap/ic_back_white"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
 
         <ImageView
+            android:id="@+id/no_Num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -36,7 +39,7 @@
             android:layout_centerVertical="true"
             android:paddingRight="10dp"
             android:src="@mipmap/ic_jump"
-            android:visibility="gone" />
+            android:visibility="visible" />
     </RelativeLayout>
 
     <FrameLayout

@@ -16,7 +16,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@mipmap/p_010001000100000002_bg" />
+            android:src="@mipmap/p_010001000100000002_bg"/>
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,10 +42,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="34dp"
                         android:layout_alignParentLeft="true"
-                        android:src="@mipmap/p_010001000100000002_logo" />
+                        android:src="@mipmap/p_010001000100000002_logo"/>
 
                     <TextView
                         android:id="@+id/title_txt"
+
+                        android:clickable="true"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/logo_iv"
@@ -53,7 +58,7 @@
                         android:text="全新一代"
                         android:textColor="@color/home_wly_black"
                         android:textSize="28sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/sub_title_txt"
@@ -66,7 +71,7 @@
                         android:text="NFC防伪查询"
                         android:textColor="@color/home_wly_black"
                         android:textSize="28sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"/>
 
                     <ImageView
                         android:id="@+id/seal_iv"
@@ -77,7 +82,7 @@
                         android:layout_marginLeft="10.0dp"
                         android:layout_toRightOf="@id/sub_title_txt"
                         android:scaleType="fitCenter"
-                        android:src="@mipmap/p_010001000100000002_seal" />
+                        android:src="@mipmap/p_010001000100000002_seal"/>
                 </RelativeLayout>
 
                 <LinearLayout
@@ -104,7 +109,7 @@
                         app:wlv_progressValue="50"
                         app:wlv_shapeType="rectangle"
                         app:wlv_waveAmplitude="50.0"
-                        app:wlv_waveColor="@color/wave_color" />
+                        app:wlv_waveColor="@color/wave_color"/>
                 </RelativeLayout>
             </RelativeLayout>
         </LinearLayout>
@@ -142,14 +147,14 @@
                             android:layout_width="80dp"
                             android:layout_height="120dp"
                             android:layout_centerInParent="true"
-                            android:src="@mipmap/ic_ident_success" />
+                            android:src="@mipmap/ic_ident_success"/>
 
                         <ImageView
                             android:id="@+id/result_img"
                             android:layout_width="110dp"
                             android:layout_height="110dp"
                             android:layout_centerInParent="true"
-                            android:src="@mipmap/p_010001000100000002_success" />
+                            android:src="@mipmap/p_010001000100000002_success"/>
                     </RelativeLayout>
 
                 </FrameLayout>
@@ -162,7 +167,7 @@
                     android:layout_marginTop="10dp"
                     android:text="请仔细核对瓶身商品信息"
                     android:textColor="@color/ewm_result_tips_gray"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"/>
 
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -178,46 +183,50 @@
                         android:layout_width="fill_parent"
                         android:layout_height="1.0dp"
                         android:layout_gravity="center_horizontal"
-                        android:background="@color/result_divider" />
+                        android:background="@color/result_divider"/>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
+                        android:layout_gravity="center"
                         android:layout_marginTop="15dp"
-                        android:orientation="horizontal"
-                        android:layout_gravity="center">
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:id="@+id/iv_0"
                             android:layout_width="20dp"
                             android:layout_height="40dp"
-                            android:background="#06c04d"
                             android:layout_marginLeft="20dp"
-                            android:layout_marginRight="20dp"/>
+                            android:layout_marginRight="20dp"
+                            android:background="#06c04d"/>
+
                         <ImageView
                             android:id="@+id/iv_1"
                             android:layout_width="20dp"
                             android:layout_height="40dp"
-                            android:background="#06c04d"
-                            android:layout_marginRight="20dp"/>
+                            android:layout_marginRight="20dp"
+                            android:background="#06c04d"/>
+
                         <ImageView
                             android:id="@+id/iv_2"
                             android:layout_width="20dp"
                             android:layout_height="40dp"
-                            android:background="#06c04d"
-                            android:layout_marginRight="20dp"/>
+                            android:layout_marginRight="20dp"
+                            android:background="#06c04d"/>
+
                         <ImageView
                             android:id="@+id/iv_3"
                             android:layout_width="20dp"
                             android:layout_height="40dp"
-                            android:background="#06c04d"
-                            android:layout_marginRight="20dp"/>
+                            android:layout_marginRight="20dp"
+                            android:background="#06c04d"/>
+
                         <ImageView
                             android:id="@+id/iv_4"
                             android:layout_width="20dp"
                             android:layout_height="40dp"
-                            android:background="#06c04d"
-                            android:layout_marginRight="20dp"/>
+                            android:layout_marginRight="20dp"
+                            android:background="#06c04d"/>
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -230,14 +239,14 @@
                 android:layout_marginRight="38dp"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
-                android:src="@mipmap/close_btn_home" />
+                android:src="@mipmap/close_btn_home"/>
 
             <include
                 android:id="@+id/failure_layout"
                 layout="@layout/dialog_failure"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone" />
+                android:visibility="gone"/>
         </LinearLayout>
     </FrameLayout>
 </LinearLayout>

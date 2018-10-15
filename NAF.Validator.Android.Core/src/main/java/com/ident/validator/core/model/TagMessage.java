@@ -19,6 +19,10 @@ public class TagMessage extends DataSupport{
         this.statenum = statenum;
     }
 
+    public TagMessage(String uid){
+        this.uid = uid;
+    }
+
     public int getId() {
         return id;
     }

@@ -15,6 +15,11 @@ import com.ident.validator.core.base.BaseFragment;
  */
 
 public class ResultFragment extends BaseFragment{
+
+
+
+
+
     public static ResultFragment newInstance(){
         Bundle args = new Bundle();
         ResultFragment fragment = new ResultFragment();
@@ -71,8 +76,10 @@ public class ResultFragment extends BaseFragment{
         Log.d("ContentValues",""+viewById);
         if(c == '1'){
             viewById.setBackgroundColor(Color.parseColor("#FF0000"));
-        }else {
+        }else if(c == '0'){
             viewById.setBackgroundColor(Color.parseColor("#44BB44"));
+        } else if (c == 'a') {
+            viewById.setBackgroundColor(Color.parseColor("#AAAAAA"));
         }
 
     }
@@ -89,4 +96,10 @@ public class ResultFragment extends BaseFragment{
             imgView.setVisibility(View.GONE);
         }
     }
+
+
+
+
+
+
 }

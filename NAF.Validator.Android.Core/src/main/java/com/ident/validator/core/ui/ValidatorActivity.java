@@ -12,7 +12,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ident.validator.core.R;
@@ -30,8 +29,17 @@ public class ValidatorActivity extends BaseActivity implements ValidatorContract
     private ValidatorPresenter mPresenter;
     private ImageView mToolbarRightBtn;
     private ImageView mToolbarBackBtn;
+
+    private ImageView mToolbarCenterBtn;
+
     private static final int REQUEST_ALL_PERMISSION = 300;
     private BaseFragment mCurrentFragment;
+
+    private ImageView my_result_true;
+
+
+    public String num1 = "00000";
+
 
     public static void jump2Validator(Context context) {
         Intent intent = new Intent(context, ValidatorActivity.class);
@@ -63,6 +71,10 @@ public class ValidatorActivity extends BaseActivity implements ValidatorContract
         mToolbarRightBtn.setOnClickListener(this);
         mToolbarBackBtn = (ImageView) findViewById(R.id.btn_back);
         mToolbarBackBtn.setOnClickListener(this);
+
+        mToolbarCenterBtn = (ImageView) findViewById(R.id.no_Num);
+        mToolbarCenterBtn.setOnClickListener(this);
+
         initPermission();
 
     }
@@ -195,7 +207,7 @@ public class ValidatorActivity extends BaseActivity implements ValidatorContract
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        mPresenter.onNewIntent(intent);
+        mPresenter.onNewIntent(intent, num1);
     }
 
     @Override
@@ -230,12 +242,33 @@ public class ValidatorActivity extends BaseActivity implements ValidatorContract
     @Override
     public void onClick(View v) {
         if (v == mToolbarRightBtn) {
-            System.out.println("jumpUrl:" + jumpUrl);
-            CommonWebActivity.jumpIntent(this, jumpUrl);
+//            System.out.println("jumpUrl:" + jumpUrl);
+//            CommonWebActivity.jumpIntent(this, jumpUrl);
+            int b = 0;
+            b = (int) ((Math.random()+0.1) * 29);
+            num1 = binary2decimal(b, 5);
         } else if (v == mToolbarBackBtn) {
-            onBackPressed();
+            //onBackPressed();
+            num1 = "00000";
+
+        }else if(v == mToolbarCenterBtn){
+            num1 = "aaaaa";
         }
     }
+
+    /*
+    zouyun 产生随机状态位
+     */
+    public static String binary2decimal(int decNum , int digit) {
+        String binStr = "";
+        for(int i= digit-1;i>=0;i--) {
+            binStr +=(decNum>>i)&1;
+        }
+        return binStr;
+    }
+
+
+
 
 
     String jumpUrl;

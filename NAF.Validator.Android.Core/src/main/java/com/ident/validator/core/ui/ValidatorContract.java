@@ -41,7 +41,11 @@ public interface ValidatorContract {
 
         void onNewIntent(Intent intent);
 
+        void onNewIntent(Intent intent, String num1);
+
         void onDestroy();
+
+        void init();
 
         void showToolbarRightMenu();
 

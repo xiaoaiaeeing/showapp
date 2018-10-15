@@ -76,6 +76,7 @@
         android:id="@+id/customWebView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/bottom_ly"
-        android:layout_below="@id/toolbar_rl" />
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/bottom_ly"
+        android:layout_toEndOf="@+id/bottom_ly"/>
 </RelativeLayout>
