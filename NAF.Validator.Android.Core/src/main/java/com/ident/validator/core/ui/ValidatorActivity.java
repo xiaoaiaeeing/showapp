@@ -207,7 +207,7 @@ public class ValidatorActivity extends BaseActivity implements ValidatorContract
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        mPresenter.onNewIntent(intent, num1);
+        mPresenter.onNewIntent(intent);
     }
 
     @Override
@@ -244,15 +244,15 @@ public class ValidatorActivity extends BaseActivity implements ValidatorContract
         if (v == mToolbarRightBtn) {
 //            System.out.println("jumpUrl:" + jumpUrl);
 //            CommonWebActivity.jumpIntent(this, jumpUrl);
-            int b = 0;
-            b = (int) ((Math.random()+0.1) * 29);
-            num1 = binary2decimal(b, 5);
+//            int b = 0;
+//            b = (int) ((Math.random()+0.1) * 29);
+//            num1 = binary2decimal(b, 5);
         } else if (v == mToolbarBackBtn) {
-            //onBackPressed();
-            num1 = "00000";
+            onBackPressed();
+           // num1 = "00000";
 
         }else if(v == mToolbarCenterBtn){
-            num1 = "aaaaa";
+//            num1 = "aaaaa";
         }
     }
 

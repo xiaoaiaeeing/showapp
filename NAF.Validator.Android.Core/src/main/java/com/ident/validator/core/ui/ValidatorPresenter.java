@@ -25,6 +25,7 @@ import com.ident.validator.core.views.ProgressDialog;
 import org.litepal.crud.DataSupport;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 import static android.content.ContentValues.TAG;
@@ -47,7 +48,10 @@ public class ValidatorPresenter implements ValidatorContract.Presenter, Validate
     private boolean isFirst;
     private ProgressDialog mProgressDialog;
     private TagInfo tagInfo;
+
     private String num = " ";
+    private String[] zouyun_num = new String[29];//存储状态位的数组
+    private int zouyun_i = 0;
 
 
     public ValidatorPresenter(ValidatorContract.View view) {
@@ -60,10 +64,10 @@ public class ValidatorPresenter implements ValidatorContract.Presenter, Validate
 
     @Override
     public void onStart() {
-//        if (isFirst){
-//            analysisTag();
-//            isFirst = false;
-//        }
+        if (isFirst){
+            analysisTag();
+            isFirst = false;
+        }
 
     }
 
@@ -84,7 +88,7 @@ public class ValidatorPresenter implements ValidatorContract.Presenter, Validate
 
     @Override
     public void onNewIntent(Intent intent){
-        //analysisTag();
+        analysisTag();
     }
 
 
@@ -160,62 +164,213 @@ public class ValidatorPresenter implements ValidatorContract.Presenter, Validate
                 ResultFragment instance = ResultFragment.newInstance();
                 mView.switchFragment(instance);
 
+                //有状态位标签的uid
+                String[] num_array = {"04867f75dae84c81", "046de00172df4c80", "046a04e23a794c84",
+                "043fd2611ae74c80", "046cbc5cea734c80", "04e7c5aedae84c80", "0445579ecae54c80", "0430902c6adf4c81",
+                "042a5bfd7ae04980", "041a56c07ae04980", "041c58c87ae04980", "04355ce57ae04980", "042d5bfa7ae04980",
+                "04235bf47ae04980", "041b5bcc7ae04980", "041c5ccc7ae04980", "04245cf47ae04980", "042e5cfe7ae04980",
+                "04385ce87ae04980", "04435c937ae04980", "044f5c9f7ae04980", "04595c897ae04980", "04645cb47ae04980",
+                "04715ca17ae04980", "047b5cab7ae04980", "04835c537ae04980", "048b5c5b7ae04980", "04945c447ae04980",
+                        "04a05c707ae04980"};
 
-                setMove(num,instance);
-                List<TagMessage> tagMessage = DataSupport.where("uid = ?",result).find(TagMessage.class);
+                //分配状态位
+                String[] state_array = {"00000", "00001", "00010", "00011", "00100", "00101", "00110",
+                "11111", "11101", "11110", "11011", "11100", "11010", "10011", "10100", "10110", "10101", "10111", "11000",
+                 "11001", "00111", "01000", "01001", "01010", "01011", "01100", "01101", "01110", "01111", "10000", "10001",
+                "10010"}
+                        ;
+                boolean result_num = Arrays.asList(num_array).contains(result);
+                System.out.println("a:" + result_num);
+                if(result_num){
+//                    int b = 0;
+//                    b = (int) ((Math.random()+0.1) * 29);
+//                    num = binary2decimal(b, 5);
 
-                if(num == "aaaaa"){
+                    switch(result){
+                        case "04867f75dae84c81":
+                            setMove("00000", instance);
+                            break;
+                        case "046de00172df4c80":
+                            setMove("00001", instance);
+                            break;
+                        case  "046a04e23a794c84":
+                            setMove("00010", instance);
+                            break;
+                        case  "043fd2611ae74c80":
+                            setMove("00011", instance);
+                            break;
+                        case  "046cbc5cea734c80":
+                            setMove("00100", instance);
+                            break;
+                        case  "04e7c5aedae84c80":
+                            setMove("00101", instance);
+                            break;
+                        case  "0445579ecae54c80":
+                            setMove("00110", instance);
+                            break;
+                        case  "0430902c6adf4c81":
+                            setMove("00111", instance);
+                            break;
+                        case  "042a5bfd7ae04980":
+                            setMove("01000", instance);
+                            break;
+                        case  "041a56c07ae04980":
+                            setMove("01001", instance);
+                            break;
+                        case  "041c58c87ae04980":
+                            setMove("01010", instance);
+                            break;
+                        case  "04355ce57ae04980":
+                            setMove("01011", instance);
+                            break;
+                        case  "042d5bfa7ae04980":
+                            setMove("01100", instance);
+                            break;
+                        case  "04235bf47ae04980":
+                            setMove("01101", instance);
+                            break;
+                        case  "041b5bcc7ae04980":
+                            setMove("01110", instance);
+                            break;
+                        case  "041c5ccc7ae04980":
+                            setMove("01111", instance);
+                            break;
+                        case  "04245cf47ae04980":
+                            setMove("10000", instance);
+                            break;
+                        case  "042e5cfe7ae04980":
+                            setMove("10001", instance);
+                            break;
+                        case  "04385ce87ae04980":
+                            setMove("10010", instance);
+                            break;
+                        case  "04435c937ae04980":
+                            setMove("10011", instance);
+                            break;
+                        case  "044f5c9f7ae04980":
+                            setMove("10100", instance);
+                            break;
+                        case  "04595c897ae04980":
+                            setMove("10101", instance);
+                            break;
+                        case  "04645cb47ae04980":
+                            setMove("10110", instance);
+                            break;
+                        case  "04715ca17ae04980":
+                            setMove("10111", instance);
+                            break;
+                        case  "047b5cab7ae04980":
+                            setMove("11000", instance);
+                            break;
+                        case  "04835c537ae04980":
+                            setMove("11001", instance);
+                            break;
+                        case  "048b5c5b7ae04980":
+                            setMove("11010", instance);
+                            break;
+                        case  "04945c447ae04980":
+                            setMove("11011", instance);
+                            break;
+                        case  "04a05c707ae04980":
+                            setMove("11100", instance);
+                            break;
+                        default:
+                            setMove("00000", instance);
+
+                    }
+
+
+                    //setMove(state_array[zouyun_i], instance);
+                    List<TagMessage> tagMessage = DataSupport.where("uid = ?",result).find(TagMessage.class);
                     if(tagMessage.size()>0){
-                        instance.setResultImg(R.mipmap.p_010001000100000002_failure);
-                        instance.setResultProduct(false);
-                        instance.setTvInfo("商品已开启");
-                        System.out.print(num);
+                            instance.setResultImg(R.mipmap.p_010001000100000002_success);
+                            instance.setResultProduct(true);
+                            instance.setTvInfo("");
+                            System.out.print(num);
                     }else{
                         TagMessage tagMes = new TagMessage(result);
                         tagMes.save();
                         instance.setResultImg(R.mipmap.p_010001000100000002_success);
                         instance.setResultProduct(true);
-                        instance.setTvInfo("商品验证为真");
+                        instance.setTvInfo("");
                         System.out.print(num);
                     }
+                }else{
+                    setMove("aaaaa", instance);
+                    List<TagMessage> tagMessage = DataSupport.where("uid = ?",result).find(TagMessage.class);
+                        instance.setResultImg(R.mipmap.p_010001000100000002_failure);
+                        instance.setResultProduct(false);
+                        instance.setTvInfo("这不是RAS标签");
+                        System.out.print(num);
+                }
+                if(zouyun_i<32){
+                    zouyun_i++;
                 }else {
-                    if(tagMessage.size()>0){
+
+                }
+
+
+
+
+
+
+
+
+//                setMove(num,instance);
+//                List<TagMessage> tagMessage = DataSupport.where("uid = ?",result).find(TagMessage.class);
+//
+//                if(num == "aaaaa"){
+//                    if(tagMessage.size()>0){
+//                        instance.setResultImg(R.mipmap.p_010001000100000002_failure);
+//                        instance.setResultProduct(false);
+//                        instance.setTvInfo("商品已开启");
+//                        System.out.print(num);
+ //                   }else{
+ //                       TagMessage tagMes = new TagMessage(result);
+ //                       tagMes.save();
+//                        instance.setResultImg(R.mipmap.p_010001000100000002_success);
+//                        instance.setResultProduct(true);
+//                        instance.setTvInfo("商品验证为真");
+//                        System.out.print(num);
+//                    }
+//                }else {
+//                    if(tagMessage.size()>0){
                         //
-                        //                                        if(tagMessage.get(0).getStatenum().equals(temp)){
-                        //                                            instance.setResultImg(R.mipmap.p_010001000100000002_success);
-                        //                                            instance.setResultProduct(true);
-                        //                                            instance.setTvInfo("商品已被开启");
-                        //                                        }else {
-                        //                                            instance.setResultImg(R.mipmap.p_010001000100000002_failure);
-                        //                                            instance.setResultProduct(false);
-                        //                                            instance.setTvInfo("商品状态位发生变化");
-                        //                                        }
-                        if(num == "00000"){
-                            instance.setResultImg(R.mipmap.p_010001000100000002_success);
-                            instance.setResultProduct(true);
-                            instance.setTvInfo("商品已被开启");
-                            System.out.print(num);
-                        }else{
-                            instance.setResultImg(R.mipmap.p_010001000100000002_failure);
-                            instance.setResultProduct(false);
-                            instance.setTvInfo("商品状态位发生变化");
-                            System.out.print(num);
-                        }
-                    }else {
+                        //if(tagMessage.get(0).getStatenum().equals(temp)){
+                        //instance.setResultImg(R.mipmap.p_010001000100000002_success);
+                        //instance.setResultProduct(true);
+                        //instance.setTvInfo("商品已被开启");
+                        //}else {
+                        //instance.setResultImg(R.mipmap.p_010001000100000002_failure);
+                        //instance.setResultProduct(false);
+                        //instance.setTvInfo("商品状态位发生变化");
+                        //}
+//                        if(num == "00000"){
+//                            instance.setResultImg(R.mipmap.p_010001000100000002_success);
+//                            instance.setResultProduct(true);
+//                            instance.setTvInfo("商品已被开启");
+//                            System.out.print(num);
+//                        }else{
+//                            instance.setResultImg(R.mipmap.p_010001000100000002_failure);
+//                            instance.setResultProduct(false);
+//                            instance.setTvInfo("商品状态位发生变化");
+//                            System.out.print(num);
+//                        }
+//                    }else {
                         //                                        TagMessage tagMes = new TagMessage(result,temp);
                         //                                        tagMes.save();
                         //                                        instance.setResultImg(R.mipmap.p_010001000100000002_success);
                         //                                        instance.setResultProduct(true);
                         //                                       instance.setTvInfo("商品验证为真");
-                        TagMessage tagMes = new TagMessage(result);
-                        tagMes.save();
-                        instance.setResultImg(R.mipmap.p_010001000100000002_success);
-                        instance.setResultProduct(true);
-                        instance.setTvInfo("商品验证为真");
-                        System.out.print(num);
+//                        TagMessage tagMes = new TagMessage(result);
+//                        tagMes.save();
+//                        instance.setResultImg(R.mipmap.p_010001000100000002_success);
+//                        instance.setResultProduct(true);
+//                        instance.setTvInfo("商品验证为真");
+//                        System.out.print(num);
 
-                    }
-                }
+//                    }
+//                }
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -428,4 +583,20 @@ public class ValidatorPresenter implements ValidatorContract.Presenter, Validate
             return null;
         }
     }
+
+
+
+
+
+    /*
+    zouyun 产生随机状态位
+     */
+    public static String binary2decimal(int decNum , int digit) {
+        String binStr = "";
+        for(int i= digit-1;i>=0;i--) {
+            binStr +=(decNum>>i)&1;
+        }
+        return binStr;
+    }
+
 }
